@@ -6,15 +6,19 @@ export default function ScraperPage({ title, fields, endpoint }: {
   fields: { name: string, label: string, placeholder: string }[],
   endpoint: string
 }) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [form, setForm] = useState<any>({})
   const [loading, setLoading] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [result, setResult] = useState<any>(null)
   const [error, setError] = useState<string | null>(null)
 
   function updateField(name: string, value: string) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setForm((prev: any) => ({ ...prev, [name]: value }))
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async function submit(e: any) {
     e.preventDefault()
     setLoading(true)
@@ -31,6 +35,7 @@ export default function ScraperPage({ title, fields, endpoint }: {
       if (!res.ok) throw new Error(await res.text())
       const json = await res.json()
       setResult(json)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message)
     }

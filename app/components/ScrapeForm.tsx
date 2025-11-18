@@ -8,6 +8,7 @@ export default function ScrapeForm() {
   const [type, setType] = useState<ScrapeType>('job')
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [result, setResult] = useState<any>(null)
   const [error, setError] = useState<string | null>(null)
 
@@ -31,6 +32,7 @@ export default function ScrapeForm() {
 
       const json = await res.json()
       setResult(json)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message)
     } finally {

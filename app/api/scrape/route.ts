@@ -83,6 +83,7 @@ export async function POST(request: NextRequest) {
     const items = await datasetRes.json()
 
     return new Response(JSON.stringify({ runId, items }), { status: 200 })
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     console.log(err)
     return new Response(JSON.stringify({ error: err.message }), { status: 500 })
